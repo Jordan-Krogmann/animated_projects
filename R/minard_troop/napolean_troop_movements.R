@@ -15,20 +15,26 @@
 # ----- packages -----
 suppressMessages(library(tidyverse)) # ----- data manipulation
 suppressMessages(library(gganimate)) # ----- animated plots
-suppressMessages(library(readxl))    # ----- grab flat file
+# suppressMessages(library(readxl))    # ----- grab flat file
 
 
 
 # ----- Data Processing -----
-
+# probably should change local pull to pull from github
 # ----- troop counts & positions
-troops <- read.table("troops.txt", header = TRUE) %>% as_tibble()
+troops <- read.table(
+  "C:/Users/Cabal/Desktop/project_repository/animated_projects/data_source/minard/troops.txt"
+  , header = TRUE) %>% as_tibble()
 
 # ----- City Locations
-cities <- read.table("cities.txt", header = TRUE) %>% as_tibble()
+cities <- read.table(
+  "C:/Users/Cabal/Desktop/project_repository/animated_projects/data_source/minard/cities.txt"
+  , header = TRUE) %>% as_tibble()
 
 # ----- Tempratures and dates
-temps <- read.table("temps.txt", header = TRUE) %>% as_tibble()
+temps <- read.table(
+  "C:/Users/Cabal/Desktop/project_repository/animated_projects/data_source/minard/temps.txt"
+  , header = TRUE) %>% as_tibble()
 
 
 
