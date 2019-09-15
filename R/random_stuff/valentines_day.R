@@ -25,7 +25,7 @@ i_heart_you <- function(path = "~/Downloads/heart.gif", width = 600, height = 60
            pch = 19,
            xlab = '', ylab = '',
            xaxt = 'n', yaxt = 'n')
-      legend("bottomright", legend = c("f(Kara) = Thanks for shitting on this ;P!"), box.lty = 0)
+      legend("bottomright", legend = c("f(x) = Happy Valentine's!"), box.lty = 0)
     }
   }, 
   movie.name = path, img.name = "heart", ani.height = height, ani.width = width)
