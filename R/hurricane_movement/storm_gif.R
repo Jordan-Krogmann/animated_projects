@@ -22,39 +22,17 @@ library(maps)       # map data
 storm_df <- noaastorms::getStorms('NA') 
 
 
+
+
 # eliminating "less"-important columns
 # /columns that don't have tracked information
 storm_df <- storm_df %>% 
-  filter(Name != "UNNAMED") %>% 
-  select(Serial_Num,
-         Season,
-         Num,
-         Basin,
-         Sub_basin,
-         Name,
-         ISO_time,
-         Nature,
-         Latitude,
-         Longitude,
-         Wind.WMO.,
-         Pres.WMO.,
-         Center,
-         Wind.WMO..Percentile,
-         Pres.WMO..Percentile,
-         Track_type,
-         Latitude_for_mapping,
-         Longitude_for_mapping,
-         Current.Basin
-         )
+  filter(NAME != "NOT_NAMED")
 
 #----Tweening for smoother animation-----
 katrina_df <- storm_df %>% 
-  filter(Name == "KATRINA" & Season == 2005) %>% 
-  select(Serial_Num
-         ,ISO_time
-         ,Longitude
-         ,Latitude
-         ,Wind.WMO.) 
+  filter(NAME == "KATRINA" & SEASON == 2005)# %>% 
+  # select() 
 
 # getting map data to create plot
 # world_map <- mapdata::map_data("world")
