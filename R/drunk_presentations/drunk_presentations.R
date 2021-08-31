@@ -3,11 +3,9 @@
 library(tidyverse)
 
 # function to calculate required drinks to 
-drink_function <- function(
-  input_weight,       # body weighet
-  required_bac = .08, # level of drunkenness
-  gender              # gender
-  ){
+drink_function <- function(input_weight,
+                           required_bac = .08, 
+                           gender){
   
   # ro is a gender constant
   ro <- if_else(gender == "male", .68, .55)
