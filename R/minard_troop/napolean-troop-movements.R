@@ -12,10 +12,9 @@
 # git config user.email "jordanckrogmann@gmail.com"
 # git config user.name "Adeptplatypus"
 
-# ----- packages -----
-suppressMessages(library(tidyverse)) # ----- data manipulation
-suppressMessages(library(gganimate)) # ----- animated plots
-# suppressMessages(library(readxl))    # ----- grab flat file
+# load packages -----
+library(tidyverse)
+library(gganimate)
 
 
 
@@ -23,18 +22,24 @@ suppressMessages(library(gganimate)) # ----- animated plots
 # probably should change local pull to pull from github
 # ----- troop counts & positions
 troops <- read.table(
-  "C:/Users/Cabal/Desktop/project_repository/animated_projects/data_source/minard/troops.txt"
-  , header = TRUE) %>% as_tibble()
+  here::here("data/minard/troops.txt"), 
+  header = TRUE
+) %>% 
+  as_tibble()
 
 # ----- City Locations
 cities <- read.table(
-  "C:/Users/Cabal/Desktop/project_repository/animated_projects/data_source/minard/cities.txt"
-  , header = TRUE) %>% as_tibble()
+  here::here("data/minard/cities.txt"), 
+  header = TRUE
+) %>% 
+  as_tibble()
 
 # ----- Tempratures and dates
 temps <- read.table(
-  "C:/Users/Cabal/Desktop/project_repository/animated_projects/data_source/minard/temps.txt"
-  , header = TRUE) %>% as_tibble()
+  here::here("data/minard/temps.txt"), 
+  header = TRUE
+) %>% 
+  as_tibble()
 
 
 
@@ -49,7 +54,7 @@ temps <- read.table(
 # ----- Add troop movements
 troops %>% 
   ggplot(aes(x = long, y = lat, group = group)) + 
-    geom_path(aes(size = survivors, color = direction))
+  geom_path(aes(size = survivors, color = direction))
 
 # ----- Map Animation 
 
