@@ -36,25 +36,32 @@ katrina_df <- storm_df %>%
 
 # getting map data to create plot
 # world_map <- mapdata::map_data("world")
-state_map <- ggplot() +
-  borders(  
-    database =  "state"
-    , colour = "grey80"
-    , fill = "white"
-    ) 
+state_map <- 
+  ggplot() +
+  borders(
+    database =  "state", 
+    colour = "grey80", 
+    fill = "white"
+  ) 
 
 # creating the gif
 storm_gif <- state_map +
-  geom_point(data = filter(storm_df, Name == "KATRINA" & Season == 2005)
-            , aes(  x = Longitude
-                  , y = Latitude
-                  , group = Serial_Num
-                  , size = Wind.WMO.
-                  , color = Wind.WMO.)
-            , alpha = .5) +
-  transition_states(states = ISO_time,
-                    transition_length = 2,
-                    state_length = 1) +
+  geom_point(
+    data = filter(storm_df, Name == "KATRINA" & Season == 2005), 
+    aes(
+      x = Longitude, 
+      y = Latitude, 
+      group = Serial_Num, 
+      size = Wind.WMO., 
+      color = Wind.WMO.
+    ), 
+    alpha = .5
+  ) +
+  transition_states(
+    states = ISO_time,
+    transition_length = 2,
+    state_length = 1
+  ) +
   shadow_trail() +
   labs(title = "Hurricane Katrina"
        ,subtitle = 'Time: {closest_state}') +
@@ -66,22 +73,27 @@ storm_gif
 
 
 #---------------------------------------
-tween_events(d, 'cubic-in-out', 50, start = time, end = time + duration,
-            enter = from_left, exit = to_right, enter_length = 0.1,
-            exit_length = 0.05)
-#---------------------------------------
-tween_events(katrina_df
-             , ease = 'linear'
-             , nframes = 10
-             , start = "2005-08-23 18:00:00"
-             , end = "2005-08-31 06:00:00" )
-#---------------------------------------
+tween_events(
+  d, 
+  'cubic-in-out', 
+  50, 
+  start = time, 
+  end = time + duration,
+  enter = from_left, 
+  exit = to_right, 
+  enter_length = 0.1,
+  exit_length = 0.05
+)
 
 #---------------------------------------
+tween_events(
+  katrina_df, 
+  ease = 'linear', 
+  nframes = 10, 
+  start = "2005-08-23 18:00:00", 
+  end = "2005-08-31 06:00:00"
+)
 
-#---------------------------------------
-
-#---------------------------------------
 
 
 

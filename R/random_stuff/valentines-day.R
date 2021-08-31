@@ -6,7 +6,7 @@ rm(list=ls())
 library(animation)
 
 # Build Function
-i_heart_you <- function(path = "C:/Users/j.krogmann/Desktop/project_repository/animated_projects/plots_gifs/random_stuff/heart.gif", width = 600, height = 600) {
+i_heart_you <- function(path = here::here("images/random_stuff/heart.gif"), width = 600, height = 600) {
   # Initialize sequences
   X <- seq(-2, 2, .001) # Set x-axis sequence
   A <- seq(0, 20, .05) # Set amplitude sequence
